@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Epsteinzinho</title>
-    <!-- Fontes e Ícones -->
+    <!-- fontes e icones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
@@ -29,7 +29,7 @@
             min-height: 100vh;
         }
 
-        /* Moldura do Celular */
+        /* moldura do celular */
         .phone {
             width: 375px;
             height: 720px;
@@ -43,7 +43,7 @@
             box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
         }
 
-        /* Animações de Entrada */
+        /* animacoes de entrada */
         @keyframes slideUp {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -67,7 +67,7 @@
         header h1 { font-size: 28px; color: var(--text-main); margin-bottom: 8px; }
         header p { color: var(--text-soft); font-size: 15px; margin-bottom: 25px; }
 
-        /* Cards Estilizados (Lei da Proximidade) */
+        /* cards estilizados */
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -97,7 +97,6 @@
             color: white;
         }
 
-        /* FAB - Floating Action Button (Affordance) */
         .fab {
             position: absolute;
             bottom: 100px;
@@ -120,7 +119,7 @@
         .fab:hover { transform: scale(1.1); background: var(--primary-light); }
         .fab:active { transform: scale(0.9); }
 
-        /* Barra de Menu Inferior (Thumb Zone) */
+        /* barra de menu inferior */
         .bottom-nav {
             height: 85px;
             background: var(--nav-bg);
@@ -152,7 +151,7 @@
             transform: translateY(-2px);
         }
 
-        /* Estilos específicos da Agenda */
+        /* estilos especificos da agenda */
         .event-dot {
             width: 8px;
             height: 8px;
@@ -165,7 +164,7 @@
 
 <div class="phone">
     
-    <!-- TELA 1: INÍCIO -->
+    <!-- tela de inicio -->
     <div id="home" class="screen active">
         <header>
             <h1>Início</h1>
@@ -181,7 +180,7 @@
         </div>
     </div>
 
-    <!-- TELA 2: AGENDA -->
+    <!-- tela de agenda-->
     <div id="agenda" class="screen">
         <header>
             <h1>Agenda</h1>
@@ -199,7 +198,7 @@
         </div>
     </div>
 
-    <!-- TELA 3: AJUSTES -->
+    <!-- tela de ajustes -->
     <div id="ajustes" class="screen">
         <header>
             <h1>Ajustes</h1>
@@ -210,12 +209,12 @@
         <div class="card"><i data-lucide="accessibility"></i> <strong style="flex:1">Acessibilidade</strong> <i data-lucide="chevron-right"></i></div>
     </div>
 
-    <!-- BOTÃO ADICIONAR -->
+    <!-- botao de adicionar -->
     <button class="fab" id="fabBtn">
         <i data-lucide="plus" size="32"></i>
     </button>
 
-    <!-- BARRA DE MENU INFERIOR -->
+    <!-- barra de menu inferior -->
     <nav class="bottom-nav">
         <button class="nav-item active-nav" onclick="changeTab('home', this)">
             <i data-lucide="home"></i>
@@ -233,20 +232,20 @@
 </div>
 
 <script>
-    // Inicializa os ícones Lucide
+    // animacoes de icone
     lucide.createIcons();
 
     function changeTab(tabId, element) {
-        // 1. Troca de Telas com animação
+        // troca de tela com animacao
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         const activeScreen = document.getElementById(tabId);
         activeScreen.classList.add('active');
 
-        // 2. Feedback Visual no Menu
+        // feedback visual do menu
         document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active-nav'));
         element.classList.add('active-nav');
 
-        // 3. Lógica do FAB (Só aparece no Início ou Agenda)
+        // logica do fab
         const fab = document.getElementById('fabBtn');
         if(tabId === 'ajustes') {
             fab.style.transform = 'scale(0)';
